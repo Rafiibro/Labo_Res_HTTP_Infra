@@ -1,41 +1,34 @@
 var Chance = require('chance');
 var chance = new Chance();
 
+var randomstring = require("randomstring");
+
 var express = require('express');
 var app = express();
 
 app.get('/', function(req, res) {
-  res.send(generateStudents());
+  res.send(randomStrings());
 });
 
 app.listen(3000, function () {
   console.log("Acceptin HTTP requests on port 3000.");
 });
 
-function generateStudents() {
-  var numberOfStudents = chance.integer({
-    min: 0,
+function randomStrings() {
+  var numberOfStrings = chance.integer({
+    min: 1,
     max: 10
   });
-  console.log(numberOfStudents);
-  var students = [];
-  for (var i = 0; i < numberOfStudents; i++) {
-    var gender = chance.gender();
-    var birthYear = chance.year({
-      min: 1986,
-      max: 1996
-    });
-    students.push({
-      firstName: chance.first({
-        gender: gender
+
+  var String = [];
+  for (var i = 1; i < numberOfStrings; ++i) {
+    String.push({
+      string: randomstring.generate({
+        length: i,
+        charset: 'custom'
       }),
-      lastName: chance.last(),
-      gender: gender,
-      birthday: chance.birthday({
-        year: birthYear
-      })
+      length: i
     });
-  };
-  console.log(students);
-  return students;
+  }
+  return String;
 }
