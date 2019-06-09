@@ -1,49 +1,34 @@
-
-TITLE: 
-Air - 100% Fully Responsive Free HTML5 Bootstrap Template
-
-AUTHOR:
-DESIGNED & DEVELOPED by FreeHTML5.co
-
-Website: http://freehtml5.co/
-Twitter: http://twitter.com/fh5co
-Facebook: http://facebook.com/fh5co
+-----------------------
+# README
+-----------------------
+Browny is a one page bootstrap 3 based resume/portfolio template.
 
 
-CREDITS:
+Template Info:
+-----------------------
+Name: 		Browny - Free Bootstrap One Page Portfolio Resume Tempalte
+Version: 	1.0
+Author: 	ThemeSINE
+Website: 	https://www.themesine.com/
 
-Bootstrap
-http://getbootstrap.com/
 
-jQuery
-http://jquery.com/
+Changelog:
+-----------------------
+Version 1.0 14-05-2018
+- initial release 
 
-jQuery Easing
-http://gsgd.co.uk/sandbox/jquery/easing/
 
-Modernizr
-http://modernizr.com/
+Credits:
+-----------------------
+- Twitter Bootstrap http://getbootstrap.com
+- jQuery http://jquery.org
+- Modernizr https://modernizr.com/
+- Sticky.js http://stickyjs.com/
+- JQuery easing https://github.com/gdsmith/jquery.easing
+- Bootsnav http://bootsnav.danurstrap.com/
+- Pexels https://www.pexels.com/
+- Unsplash https://unsplash.com/
 
-Google Fonts
-https://www.google.com/fonts/
-
-Icomoon
-https://icomoon.io/app/
-
-Respond JS
-https://github.com/scottjehl/Respond/blob/master/LICENSE-MIT
-
-animate.css
-http://daneden.me/animate
-
-jQuery Waypoint
-https://github.com/imakewebthings/waypoints/blog/master/licenses.txt
-
-Magnific Popup
-http://dimsemenov.com/plugins/magnific-popup/
-
-Demo Images:
-http://unsplash.com
-
-Flexslider
-http://flexslider.woothemes.com/
+License:
+-----------------------
+This template is under Free License - https://www.themesine.com/license/
