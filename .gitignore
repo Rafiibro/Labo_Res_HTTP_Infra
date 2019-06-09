@@ -13,3 +13,6 @@ lib/
 nbactions.xml
 .idea/
 
+
+# Dependency directories
+node_modules/
