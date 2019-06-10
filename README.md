@@ -1,133 +1,94 @@
 # Teaching-HEIGVD-RES-2018-Labo-HTTPInfra
 
-## Objectives
-
-The first objective of this lab is to get familiar with software tools that will allow us to build a **complete web infrastructure**. By that, we mean that we will build an environment that will allow us to serve **static and dynamic content** to web browsers. To do that, we will see that the **apache httpd server** can act both as a **HTTP server** and as a **reverse proxy**. We will also see that **express.js** is a JavaScript framework that makes it very easy to write dynamic web apps.
-
-The second objective is to implement a simple, yet complete, **dynamic web application**. We will create **HTML**, **CSS** and **JavaScript** assets that will be served to the browsers and presented to the users. The JavaScript code executed in the browser will issue asynchronous HTTP requests to our web infrastructure (**AJAX requests**) and fetch content generated dynamically.
-
-The third objective is to practice our usage of **Docker**. All the components of the web infrastructure will be packaged in custom Docker images (we will create at least 3 different images).
-
-## General instructions
-
-* This is a **BIG** lab and you will need a lot of time to complete it. This is the last lab of the semester (but it will keep us busy for a few weeks!).
-* We have prepared webcasts for a big portion of the lab (**what can get you the "base" grade of 4.5**).
-* To get **additional points**, you will need to do research in the documentation by yourself (we are here to help, but we will not give you step-by-step instructions!). To get the extra points, you will also need to be creative (do not expect complete guidelines).
-* The lab can be done in **groups of 2 students**. You will learn very important skills and tools, which you will need to next year's courses. You cannot afford to skip this content if you want to survive next year.
-* Read carefully all the **acceptance criteria**.
-* We will request demos as needed. When you do your **demo**, be prepared to that you can go through the procedure quickly (there are a lot of solutions to evaluate!)
-* **You have to write a report. Please do that directly in the repo, in one or more markdown files. Start in the README.md file at the root of your directory.**
-* The report must contain the procedure that you have followed to prove that your configuration is correct (what you would do if you were doing a demo)
-
 
 ## Step 1: Static HTTP server with apache httpd
 
-### Webcasts
+Rien de spécial à dire pour cette partie du laboratoire, j'ai simplement suivi les webcasts et ça a marché du premier coup.
 
-* [Labo HTTP (1): Serveur apache httpd "dockerisé" servant du contenu statique](https://www.youtube.com/watch?v=XFO4OmcfI3U)
+Pour le template, j'ai choisi d'utiliser ce template :
+https://onepagelove.com/browny
 
-### Acceptance criteria
-
-* You have a GitHub repo with everything needed to build the Docker image.
-* You can do a demo, where you build the image, run a container and access content from a browser.
-* You have used a nice looking web template, different from the one shown in the webcast.
-* You are able to explain what you do in the Dockerfile.
-* You are able to show where the apache config files are located (in a running container).
-* You have **documented** your configuration in your report.
+Je l'ai un peu modifier pour qu'il contienne les différentes informations sur le laboratoire. Ainsi que rajouter un bouton nous renvoyons sur mon repo GitHub pour ce laboratoire.
 
 ## Step 2: Dynamic HTTP server with express.js
 
-### Webcasts
+Pour ce laboratoire, comme précédemant, j'ai suivi les différents webcast afin d'arriver à ce résultat et il est fonctionnel.
 
-* [Labo HTTP (2a): Application node "dockerisée"](https://www.youtube.com/watch?v=fSIrZ0Mmpis)
-* [Labo HTTP (2b): Application express "dockerisée"](https://www.youtube.com/watch?v=o4qHbf_vMu0)
+Pour la partie qui génére des mots ou autres, je n'avais pas d'idée spécial, de ce fait j'ai installé une api qui renvoie un string aléatoire.
 
-### Acceptance criteria
+RandomStrings : https://www.npmjs.com/package/randomstring
 
-* You have a GitHub repo with everything needed to build the Docker image.
-* You can do a demo, where you build the image, run a container and access content from a browser.
-* You generate dynamic, random content and return a JSON payload to the client.
-* You cannot return the same content as the webcast (you cannot return a list of people).
-* You don't have to use express.js; if you want, you can use another JavaScript web framework or event another language.
-* You have **documented** your configuration in your report.
+Je lui indique la taille des strings et le type de string (seulement les caractères alphabétique dans mon cas).
 
+J'utilise aussi l'api chance qui me permet de générer un nombre aléatoire pour savoir combien de string je vais créer.
 
 ## Step 3: Reverse proxy with apache (static configuration)
 
-### Webcasts
+Rien de spécial pour la configuration de la partie, j'ai simplement suivi les webcasts.
 
-* [Labo HTTP (3a): reverse proxy apache httpd dans Docker](https://www.youtube.com/watch?v=WHFlWdcvZtk)
-* [Labo HTTP (3b): reverse proxy apache httpd dans Docker](https://www.youtube.com/watch?v=fkPwHyQUiVs)
-* [Labo HTTP (3c): reverse proxy apache httpd dans Docker](https://www.youtube.com/watch?v=UmiYS_ObJxY)
+pour cette partie, j'ai d'abord eu un problème de compréhension car lorsque je lançais les 3 containers, puis je me connectais au reverse proxy avec la commande docker run, je n'arrive pas à effectuer de telnet sur les deux autres containers. Je ne sais toujours pas pourquoi ça ne marche pas.
 
+Mais heureusement, ça ne m'a pas entaché la suite de mon laboratoire.
 
-### Acceptance criteria
-
-* You have a GitHub repo with everything needed to build the Docker image for the container.
-* You can do a demo, where you start from an "empty" Docker environment (no container running) and where you start 3 containers: static server, dynamic server and reverse proxy; in the demo, you prove that the routing is done correctly by the reverse proxy.
-* You can explain and prove that the static and dynamic servers cannot be reached directly (reverse proxy is a single entry point in the infra). 
-* You are able to explain why the static configuration is fragile and needs to be improved.
-* You have **documented** your configuration in your report.
-
+Autre point plus ou moins important, je n'ai jamais utiliser VIM ou appris à l'utiliser donc je n'arrivais pas à éditer/sauvegarder mes fichiers. Donc j'ai décidé d'au lieu d'installer VIM sur mes containers, j'ai installé nano qui est un programme que j'ai plus l'habitude d'utiliser.
 
 ## Step 4: AJAX requests with JQuery
 
-### Webcasts
+Niveau configuration, rien de spécial, j'ai tout simplement suivi les webcasts.
 
-* [Labo HTTP (4): AJAX avec JQuery](https://www.youtube.com/watch?v=fgpNEbgdm5k)
+Cette partie est celle qui m'a pris le plus de temps. Car n'ayant jamais fait de web je ne savais pas comment trouver les classes etc...
 
-### Acceptance criteria
-
-* You have a GitHub repo with everything needed to build the various images.
-* You can do a complete, end-to-end demonstration: the web page is dynamically updated every few seconds (with the data coming from the dynamic backend).
-* You are able to prove that AJAX requests are sent by the browser and you can show the content of th responses.
-* You are able to explain why your demo would not work without a reverse proxy (because of a security restriction).
-* You have **documented** your configuration in your report.
+Mon template HTML n'avait pas de classe comme présenté dans les webcasts ou il suffit de changer ça valeur et ça marchait. Du coup, j'ai pris pas mal de temps à regarder comment créer une classe pour l'inclure dans mon template pour ensuite pouvoir le faire bouger dynamiquement avec mon deuxième container.
 
 ## Step 5: Dynamic reverse proxy configuration
 
-### Webcasts
-
-* [Labo HTTP (5a): configuration dynamique du reverse proxy](https://www.youtube.com/watch?v=iGl3Y27AewU)
-* [Labo HTTP (5b): configuration dynamique du reverse proxy](https://www.youtube.com/watch?v=lVWLdB3y-4I)
-* [Labo HTTP (5c): configuration dynamique du reverse proxy](https://www.youtube.com/watch?v=MQj-FzD-0mE)
-* [Labo HTTP (5d): configuration dynamique du reverse proxy](https://www.youtube.com/watch?v=B_JpYtxoO_E)
-* [Labo HTTP (5e): configuration dynamique du reverse proxy](https://www.youtube.com/watch?v=dz6GLoGou9k)
-
-### Acceptance criteria
-
-* You have a GitHub repo with everything needed to build the various images.
-* You have found a way to replace the static configuration of the reverse proxy (hard-coded IP adresses) with a dynamic configuration.
-* You may use the approach presented in the webcast (environment variables and PHP script executed when the reverse proxy container is started), or you may use another approach. The requirement is that you should not have to rebuild the reverse proxy Docker image when the IP addresses of the servers change.
-* You are able to do an end-to-end demo with a well-prepared scenario. Make sure that you can demonstrate that everything works fine when the IP addresses change!
-* You are able to explain how you have implemented the solution and walk us through the configuration and the code.
-* You have **documented** your configuration in your report.
+Rien de spécial à dire sur cette partie, j'ai simplement suivi les webcasts.
 
 ## Additional steps to get extra points on top of the "base" grade
 
-### Load balancing: multiple server nodes (0.5pt)
+### Load balancing: multiple server nodes
 
-* You extend the reverse proxy configuration to support **load balancing**. 
-* You show that you can have **multiple static server nodes** and **multiple dynamic server nodes**. 
-* You prove that the **load balancer** can distribute HTTP requests between these nodes.
-* You have **documented** your configuration and your validation procedure in your report.
+Pour cette partie, j'ai utilisé cette page de documentation fournie par apache : https://httpd.apache.org/docs/2.4/fr/mod/mod_proxy_balancer.html
 
-### Load balancing: round-robin vs sticky sessions (0.5 pt)
+Différentes étape faites pour réaliser cette parte :
 
-* You do a setup to demonstrate the notion of sticky session.
-* You prove that your load balancer can distribute HTTP requests in a round-robin fashion to the dynamic server nodes (because there is no state).
-* You prove that your load balancer can handle sticky sessions when forwarding HTTP requests to the static server nodes.
-* You have documented your configuration and your validation procedure in your report.
+1) Duplication de apache-php et express-image afin d'avoir deux nodes différentes.
 
-### Dynamic cluster management (0.5 pt)
+2) Modification du fichier html index.html afin qu'il renvoie cluster 1 dans un image et cluster 2 dans l'autre, ceci sera affiché en gros sur le site pour savoir dans quel cluster on est.
+![](image/clustersite.png)
 
-* You develop a solution, where the server nodes (static and dynamic) can appear or disappear at any time.
-* You show that the load balancer is dynamically updated to reflect the state of the cluster.
-* You describe your approach (are you implementing a discovery protocol based on UDP multicast? are you using a tool such as serf?)
-* You have documented your configuration and your validation procedure in your report.
+3) Modification du script string.js pour qu'il renvoie cluster 1 ou 2 selon la session actuelle.
+![](image/Screenshot 2019-06-10 at 18.55.03.png)
 
-### Management UI (0.5 pt)
+4) Modification du fichier de configuration php pour qu'il accepte les clusters. Un cookie est donné au client lorsqu'il se connect au serveur pour qu'il reste connecté tant qu'il est sur le site (effectué avec la variable set cookie et stickysession comme indiqué dans la documentation).
+![](image/code.png)
 
-* You develop a web app (e.g. with express.js) that administrators can use to monitor and update your web infrastructure.
-* You find a way to control your Docker environment (list containers, start/stop containers, etc.) from the web app. For instance, you use the Dockerode npm module (or another Docker client library, in any of the supported languages).
-* You have documented your configuration and your validation procedure in your report.
+5) Ajout de librairie dans le Dockerfile de reverse-proxy : proxy_balancer lbmethod_byrequests headers
+
+6) Création d'un script lançant plusieurs apache_static et express_dynamic plus lancement de apache_rp
+![](image/script.png)
+
+### Load balancing: round-robin vs sticky sessions
+
+Dans mon laboratoire, j'utilise une sticky sesssion qui va permettre que lorsque l'utilisateur se connècte au serveur, il garde toujours la même session jusqu'à ce qu'il parte.
+
+J'ai aussi la variable lbmethod qui est initialisé à byrequests, ce qui permet de faire que le serveur gère les requête et les distribue selon le nombre de personnes connectées par session.
+
+Ce nombre de personne est spécifié par la variable loadfactor, 1 dans notre cas.
+
+### Management UI
+
+Pour cette partie, j'ai décidé d'utiliser l'image portainer. Cette image est fourni en utilisant la commande docker **pull portainer/portainer**
+
+Pour l'utiliser :
+
+1) ajout de la commande lançant le container dans le script : **docker run -d -v /var/run/docker.sock:/var/run/docker.sock portainer/portainer**
+
+2) changement du fichier config php pour le permettre d'accéder au portainer en utilisant **demo.res.ch/portainer/**:
+![](image/codeportainer.png)
+
+3) création du compte admin :
+![](image/login.png)
+
+4) Interface de portainer permettant de gérer tous les containers :
+![](image/boi.png)
