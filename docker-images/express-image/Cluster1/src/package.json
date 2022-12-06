@@ -11,7 +11,7 @@
   "dependencies": {
     "chance": "^1.0.18",
     "chucknorris-io": "^1.0.5",
-    "express": "^4.17.1",
+    "express": "^4.18.2",
     "random-quotes": "^1.3.0",
     "randomstring": "^1.1.5"
   }
